@@ -1,6 +1,6 @@
 @import '../../../settings/Settings';
 
-$secondary-color: white;
+$secondary-color: rgb(0, 0, 0);
 $main-color: transparent;
 $width: 320px;
 
@@ -17,7 +17,7 @@ $width: 320px;
 label {
   position: absolute;
   top: $width/15;
-  color: white;
+  color: rgb(0, 0, 0);
   font: 400 $width/15;
   cursor: text;
   transition: .25s ease;
@@ -37,7 +37,7 @@ input {
     ~label {
       top: 0;
       font: 700 $width/25;
-      color: white;
+      color: rgb(0, 0, 0);
     }
   }
   &:focus {

@@ -44,10 +44,10 @@ const TopNavigationBar: React.FC<IProps> = ({updateActivePopupType, updateProjec
                     >
                         <img
                             draggable={false}
-                            alt={"make-sense"}
-                            src={"/make-sense-ico-transparent.png"}
+                            alt={"VOLA"}
+                            src={"img/vola_logo.png"}
                         />
-                        Make Sense
+                        Visual Object Labelling Assistant
                     </div>
                 </div>
                 <div className="NavigationBarGroupWrapper">
@@ -62,25 +62,19 @@ const TopNavigationBar: React.FC<IProps> = ({updateActivePopupType, updateProjec
                 </div>
                 <div className="NavigationBarGroupWrapper">
                     <UnderlineTextButton
-                        label={"UPDATE LABELS NAMES"}
+                        label={"Manage Class"}
                         under={true}
                         onClick={() => updateActivePopupType(PopupWindowType.UPDATE_LABEL_NAMES)}
                     />
                     <UnderlineTextButton
-                        label={"MORE IMAGES"}
+                        label={"Upload Data"}
                         under={true}
                         onClick={() => updateActivePopupType(PopupWindowType.LOAD_IMAGES)}
                     />
                     <UnderlineTextButton
-                        label={"EXPORT LABELS"}
+                        label={"Download Annotation"}
                         under={true}
                         onClick={() => updateActivePopupType(PopupWindowType.EXPORT_LABELS)}
-                    />
-                    <ImageButton
-                        image={"img/github-logo.png"}
-                        imageAlt={"github-logo.png"}
-                        buttonSize={{width: 30, height: 30}}
-                        href={Settings.GITHUB_URL}
                     />
                 </div>
             </div>

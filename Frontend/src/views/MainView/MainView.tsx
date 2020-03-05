@@ -10,6 +10,7 @@ import {Tooltip} from "@material-ui/core";
 import Fade from "@material-ui/core/Fade";
 import withStyles from "@material-ui/core/styles/withStyles";
 import ImagesDropZone from "./ImagesDropZone/ImagesDropZone";
+import LoginView from './LoginView/LoginView';
 
 const MainView: React.FC = () => {
     const [projectInProgress, setProjectInProgress] = useState(false);
@@ -31,38 +32,6 @@ const MainView: React.FC = () => {
                 "Canceled": !projectInProgress && projectCanceled
             }
         );
-    };
-
-    const DarkTooltip = withStyles(theme => ({
-        tooltip: {
-            backgroundColor: "#171717",
-            color: "#ffffff",
-            boxShadow: theme.shadows[1],
-            fontSize: 11,
-            maxWidth: 120
-        },
-    }))(Tooltip);
-
-    const getSocialMediaButtons = (size:ISize) => {
-        return SocialMediaData.map((data:ISocialMedia, index: number) => {
-            return <DarkTooltip
-                key={index}
-                disableFocusListener
-                title={data.tooltipMessage}
-                TransitionComponent={Fade}
-                TransitionProps={{ timeout: 600 }}
-                placement="left"
-            >
-                <div>
-                    <ImageButton
-                        buttonSize={size}
-                        image={data.imageSrc}
-                        imageAlt={data.imageAlt}
-                        href={data.href}
-                    />
-                </div>
-            </DarkTooltip>
-        });
     };
 
     const getEditorFeatureTiles = () => {
@@ -106,7 +75,7 @@ const MainView: React.FC = () => {
                     <img
                         draggable={false}
                         alt={"main-logo"}
-                        src={"img/main-image-color.png"}
+                        src={"img/vola_logo.png"}
                     />
                 </div>
                 <div className="EditorFeaturesWrapper">
@@ -121,13 +90,14 @@ const MainView: React.FC = () => {
                 />}
             </div>
             <div className="RightColumn">
-                <div/>
+
+                {/* {projectInProgress && <LoginView/>} */}
                 <ImagesDropZone/>
                 <div className="SocialMediaWrapper">
-                    {getSocialMediaButtons({width: 30, height: 30})}
+                    
                 </div>
                 {!projectInProgress && <TextButton
-                    label={"Get Started"}
+                    label={"Login"}
                     onClick={startProject}
                 />}
             </div>

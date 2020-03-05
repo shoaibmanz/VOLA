@@ -1,5 +1,4 @@
 import React from "react";
-import './ImagesDropZone.scss';
 import {useDropzone} from "react-dropzone";
 import {TextButton} from "../../Common/TextButton/TextButton";
 import {ImageData} from "../../../store/labels/types";
@@ -21,7 +20,7 @@ interface IProps {
     projectData: ProjectData;
 }
 
-const ImagesDropZone: React.FC<IProps> = ({updateActiveImageIndex, addImageData, updateProjectData, updateActivePopupType, projectData}) => {
+const CreateDatasetView: React.FC<IProps> = ({updateActiveImageIndex, addImageData, updateProjectData, updateActivePopupType, projectData}) => {
     const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
         accept: AcceptedFileType.IMAGE
     });
@@ -102,4 +101,4 @@ const mapStateToProps = (state: AppState) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ImagesDropZone);
+)(CreateDatasetView);

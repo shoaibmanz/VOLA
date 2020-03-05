@@ -27,11 +27,11 @@ const App: React.FC<IProps> = ({projectType, windowSize, ObjectDetectorLoaded, P
         if (!projectType)
             return <MainView/>;
         else {
-            if (windowSize.height < Settings.EDITOR_MIN_HEIGHT || windowSize.width < Settings.EDITOR_MIN_WIDTH) {
-                return <SizeItUpView/>;
-            } else {
+            // if (windowSize.height < Settings.EDITOR_MIN_HEIGHT || windowSize.width < Settings.EDITOR_MIN_WIDTH) {
+            //     return <SizeItUpView/>;
+            // } else {
                 return <EditorView/>;
-            }
+            // }
         }
     };
 
@@ -51,6 +51,7 @@ const mapStateToProps = (state: AppState) => ({
     ObjectDetectorLoaded: state.ai.isObjectDetectorLoaded,
     PoseDetectionLoaded: state.ai.isPoseDetectorLoaded
 });
+
 
 export default connect(
     mapStateToProps

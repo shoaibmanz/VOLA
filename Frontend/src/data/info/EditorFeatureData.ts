@@ -6,17 +6,17 @@ export interface IEditorFeature {
 
 export const EditorFeatureData: IEditorFeature[] = [
     {
-        displayText: "Open source and free to use under GPLv3 license",
-        imageSrc: "img/open-source.png",
+        displayText: "Typescript on React",
+        imageSrc: "img/react-logo.png",
         imageAlt: "open-source",
     },
     {
-        displayText: "No advanced installation required, just open up your browser",
-        imageSrc: "img/online.png",
+        displayText: "Redux for state management",
+        imageSrc: "img/redux-logo.png",
         imageAlt: "online",
     },
     {
-        displayText: "We don't store your images, because we don't send them anywhere",
+        displayText: "MongoDB for storage",
         imageSrc: "img/private.png",
         imageAlt: "private",
     },
