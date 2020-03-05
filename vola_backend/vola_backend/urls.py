@@ -20,6 +20,6 @@ from home import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'employees/', views.users.as_view())    
+    url(r'annotations/', views.users.as_view())    
 
 ]
