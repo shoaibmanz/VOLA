@@ -15,6 +15,8 @@ import LoginView from './LoginView/LoginView';
 const MainView: React.FC = () => {
     const [projectInProgress, setProjectInProgress] = useState(false);
     const [projectCanceled, setProjectCanceled] = useState(false);
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [username, setUsername] = useState("");
 
     const startProject = () => {
         setProjectInProgress(true);
@@ -56,6 +58,11 @@ const MainView: React.FC = () => {
         });
     };
 
+    const setUser = (username : string) => {
+        console.log(username)
+        setUsername(username);
+        setLoggedIn(true);
+    }
     return (
         <div className={getClassName()}>
             <div className="Slider" id="lower">
@@ -91,8 +98,8 @@ const MainView: React.FC = () => {
             </div>
             <div className="RightColumn">
 
-                {/* {projectInProgress && <LoginView/>} */}
-                <ImagesDropZone/>
+                {projectInProgress && !loggedIn && <LoginView notifyLogin={setUser}/>}
+                {projectInProgress && loggedIn && <ImagesDropZone/>}
                 <div className="SocialMediaWrapper">
                     
                 </div>

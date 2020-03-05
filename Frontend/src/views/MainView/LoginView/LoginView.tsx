@@ -9,17 +9,17 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import TextInput from "../../Common/TextInput/TextInput"
 import "./LoginView.scss"
+import axios from 'axios';
 
-const LoginView: React.FC = () => {
+interface IProps {
+  notifyLogin: (username: string) => any;
+}
+
+const LoginView: React.FC<IProps> = ({notifyLogin}) => {
     const [loggedIn, setLoggedIn] = useState(false);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    const tryLogin = () => {
-
-    };
-
 
 
   function validateForm() {
@@ -27,15 +27,22 @@ const LoginView: React.FC = () => {
   }
 
   function handleSubmit() {
+
+    var endpoint : string = 'https://jsonplaceholder.typicode.com/users'; 
+    axios.get(endpoint)
+      .then(res => {
+        setLoggedIn(res.data);
+    }).catch(e => console.error(e))
+
+    if (email === "shoaib" || email === "rehman" || email === "zubair") {
+      notifyLogin(email)
+    }
     
-    let success = false;
-    console.log(email)
-    console.log(password)
-    if (success) {
-        setLoggedIn(true);
+    if (loggedIn) {
+
     }
     else {
-        setLoggedIn(false);
+      
     }
   }
 

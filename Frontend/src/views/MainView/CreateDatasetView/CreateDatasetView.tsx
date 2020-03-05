@@ -24,7 +24,7 @@ const CreateDatasetView: React.FC<IProps> = ({updateActiveImageIndex, addImageDa
     const {acceptedFiles, getRootProps, getInputProps} = useDropzone({
         accept: AcceptedFileType.IMAGE
     });
-
+    
     const startEditor = (projectType: ProjectType) => {
         console.log(projectData)
         if (acceptedFiles.length > 0) {
