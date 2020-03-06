@@ -41,7 +41,7 @@ const ExportLabelPopup: React.FC = () => {
 
     const onSelect = (exportFormatType: ExportFormatType) => {
         setExportFormatType(exportFormatType);
-    };
+    }; 
 
     const getOptions = (exportFormatData: IExportFormat[]) => {
         return exportFormatData.map((entry: IExportFormat) => {
@@ -109,8 +109,8 @@ const ExportLabelPopup: React.FC = () => {
                 </div>
                 <div className="Options">
                     {exportLabelType === LabelType.RECTANGLE && getOptions(RectExportFormatData)}
-                    {exportLabelType === LabelType.POINT && getOptions(PointExportFormatData)}
-                    {exportLabelType === LabelType.POLYGON && getOptions(PolygonExportFormatData)}
+                    {/* {exportLabelType === LabelType.POINT && getOptions(PointExportFormatData)}
+                    {exportLabelType === LabelType.POLYGON && getOptions(PolygonExportFormatData)} */}
                 </div>
             </div>
         </div>);
@@ -120,9 +120,9 @@ const ExportLabelPopup: React.FC = () => {
         <GenericYesNoPopup
             title={"Export your labels"}
             renderContent={renderContent}
-            acceptLabel={"Export"}
+            acceptLabel={"Download"}
             onAccept={onAccept}
-            rejectLabel={"I'm not ready yet"}
+            rejectLabel={"Cancel"}
             onReject={onReject}
         />
     );

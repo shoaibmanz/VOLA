@@ -18,7 +18,7 @@ interface SelectableModel {
 const models: SelectableModel[] = [
     {
         model: AIModel.OBJECT_DETECTION,
-        name: "COCO SSD - object detection using bounding box",
+        name: "SSD - object detection using bounding box",
         flag: false
     }
     // },
