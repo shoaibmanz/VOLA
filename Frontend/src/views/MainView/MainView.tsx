@@ -11,6 +11,7 @@ import Fade from "@material-ui/core/Fade";
 import withStyles from "@material-ui/core/styles/withStyles";
 import ImagesDropZone from "./ImagesDropZone/ImagesDropZone";
 import LoginView from './LoginView/LoginView';
+import CreateDatasetView from './CreateDatasetView/CreateDatasetView';
 
 const MainView: React.FC = () => {
     const [projectInProgress, setProjectInProgress] = useState(false);
@@ -99,10 +100,8 @@ const MainView: React.FC = () => {
             <div className="RightColumn">
 
                 {projectInProgress && !loggedIn && <LoginView notifyLogin={setUser}/>}
-                {projectInProgress && loggedIn && <ImagesDropZone/>}
-                <div className="SocialMediaWrapper">
-                    
-                </div>
+                {projectInProgress && loggedIn && <CreateDatasetView/>}
+
                 {!projectInProgress && <TextButton
                     label={"Login"}
                     onClick={startProject}

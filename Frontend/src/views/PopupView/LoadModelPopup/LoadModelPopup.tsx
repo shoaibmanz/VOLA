@@ -18,34 +18,42 @@ interface SelectableModel {
 const models: SelectableModel[] = [
     {
         model: AIModel.OBJECT_DETECTION,
-        name: "COCO SSD - object detection using rectangles",
-        flag: false
-    },
-    {
-        model: AIModel.POSE_DETECTION,
-        name: "POSE-NET - pose estimation using points",
+        name: "COCO SSD - object detection using bounding box",
         flag: false
     }
+    // },
+    // {
+    //     model: AIModel.POSE_DETECTION,
+    //     name: "POSE-NET - pose estimation using points",
+    //     flag: false
+    // }
 ];
 
-export const LoadModelPopup: React.FC = () => {
+interface IProps {
+    updateDisabledAIFlag: (flag : boolean) => any;
+}
+
+export const LoadModelPopup: React.FC<IProps> = ({updateDisabledAIFlag}) => {
     const [modelIsLoadingStatus, setModelIsLoadingStatus] = useState(false);
     const [selectedModelToLoad, updateSelectedModelToLoad] = useState(models);
 
     const onAccept = () => {
-        setModelIsLoadingStatus(true);
-        switch (extractSelectedModel()) {
-            case AIModel.POSE_DETECTION:
-                PoseDetector.loadModel(() => {
-                    PopupActions.close();
-                });
-                break;
-            case AIModel.OBJECT_DETECTION:
-                ObjectDetector.loadModel(() => {
-                    PopupActions.close();
-                });
-                break;
-        }
+        updateDisabledAIFlag(true);
+        PopupActions.close();
+
+        // setModelIsLoadingStatus(true);
+        // switch (extractSelectedModel()) {
+        //     case AIModel.POSE_DETECTION:
+        //         PoseDetector.loadModel(() => {
+        //             PopupActions.close();
+        //         });
+        //         break;
+        //     case AIModel.OBJECT_DETECTION:
+        //         ObjectDetector.loadModel(() => {
+        //             PopupActions.close();
+        //         });
+        //         break;
+        // }
     };
 
     const extractSelectedModel = (): AIModel => {
@@ -131,7 +139,7 @@ export const LoadModelPopup: React.FC = () => {
             acceptLabel={"Use model!"}
             onAccept={onAccept}
             disableAcceptButton={modelIsLoadingStatus || !extractSelectedModel()}
-            rejectLabel={"I'm going on my own"}
+            rejectLabel={"Annotate manually"}
             onReject={onReject}
             disableRejectButton={modelIsLoadingStatus}
         />

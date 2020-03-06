@@ -38,7 +38,7 @@ const ExitProjectPopup: React.FC<IProps> = (props) => {
         return(
             <div className="ExitProjectPopupContent">
                 <div className="Message">
-                    Are you sure you want to leave the editor? You will permanently lose all your progress.
+                    Are you sure you want to leave the editor?
                 </div>
             </div>
         )
@@ -47,7 +47,7 @@ const ExitProjectPopup: React.FC<IProps> = (props) => {
     const onAccept = () => {
         updateActiveLabelNameId(null);
         updateLabelNames([]);
-        updateProjectData({type: null, name: "my-project-name"});
+        updateProjectData({type: null, name: "my-project-name", description: "sample description"});
         updateActiveImageIndex(null);
         updateImageData([]);
         updateFirstLabelCreatedFlag(false);

@@ -12,6 +12,7 @@ $width: 320px;
   height: $width/6;
   overflow: hidden;
   position: relative;
+  margin-right: 80px;
 }
 
 label {
@@ -19,6 +20,7 @@ label {
   top: $width/15;
   color: rgb(0, 0, 0);
   font: 400 $width/15;
+  font-weight: bold;
   cursor: text;
   transition: .25s ease;
 }
@@ -32,6 +34,7 @@ input {
   color: white;
   background: $main-color;
   font-size: $width/20;
+  
   transition: .3s ease;
   &:valid {
     ~label {
@@ -45,8 +48,7 @@ input {
     ~label {
       top: 0;
       font: 700 $width/25;
-      color: $secondaryColor; // fallback if new css variables are not supported by browser
-      color: var(--leading-color);
+      color: darkred; // fallback if new css variables are not supported by browser
     }
 
     ~ .Bar {

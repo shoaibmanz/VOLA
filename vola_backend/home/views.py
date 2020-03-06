@@ -16,6 +16,7 @@ from .serializer import UserSerializer, AnnotSerializer
 
 class users(APIView):
     def get (self, request):
+        print(request)
         users = User.objects.all()
         serailizer = UserSerializer(users, many=True)
         return Response(serailizer.data)
@@ -23,7 +24,21 @@ class users(APIView):
     def post (self, request):
         pass
 
+class Auth(APIView):
+    def get(self, request):
+        email = request.GET['email']
+        password = request.GET['password']
+        print(email, password)
+        try:
+            user = User.objects.get(email=email)
+            if user.password == password:
+                return Response({'success' : 1})
+        except e:
+            print(e)
+        return Response({'success' : 0})
 
+    def post (self, request):
+        pass
 
 class annotations(APIView):
     def get (self, request):
@@ -32,6 +47,7 @@ class annotations(APIView):
         return Response(serailizer.data)
 
     def post (self, request):
+        print(request.data)
         serial = AnnotSerializer(data=request.data)
         if serial.is_valid():
             serial.save()

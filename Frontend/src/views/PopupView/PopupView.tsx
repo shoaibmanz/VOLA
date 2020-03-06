@@ -2,6 +2,7 @@ import React from 'react';
 import './PopupView.scss';
 import {PopupWindowType} from "../../data/enums/PopupWindowType";
 import {AppState} from "../../store";
+import {updateDisabledAIFlag} from "../../store/ai/actionCreators";
 import {connect} from "react-redux";
 import LoadLabelsPopup from "./LoadLabelNamesPopup/LoadLabelNamesPopup";
 import ExportLabelPopup from "./ExportLabelsPopup/ExportLabelPopup";
@@ -26,19 +27,15 @@ const PopupView: React.FC<IProps> = ({activePopupType}) => {
             case PopupWindowType.EXPORT_LABELS:
                 return <ExportLabelPopup/>;
             case PopupWindowType.INSERT_LABEL_NAMES:
-                return <InsertLabelNamesPopup
-                    isUpdate={false}
-                />;
+                return <InsertLabelNamesPopup/>;
             case PopupWindowType.UPDATE_LABEL_NAMES:
-                return <InsertLabelNamesPopup
-                    isUpdate={true}
-                />;
+                return <InsertLabelNamesPopup/>;
             case PopupWindowType.EXIT_PROJECT:
                 return <ExitProjectPopup/>;
             case PopupWindowType.LOAD_IMAGES:
                 return <LoadMoreImagesPopup/>;
             case PopupWindowType.LOAD_AI_MODEL:
-                return <LoadModelPopup/>;
+                return <LoadModelPopup updateDisabledAIFlag={updateDisabledAIFlag}/>;
             case PopupWindowType.SUGGEST_LABEL_NAMES:
                 return <SuggestLabelNamesPopup/>;
             case PopupWindowType.LOADER:

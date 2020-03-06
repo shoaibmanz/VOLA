@@ -13,6 +13,7 @@ const initialState: GeneralState = {
     projectData: {
         type: null,
         name: "my-project-name",
+        description: "sample description",
     },
     zoom: ViewPointSettings.MIN_ZOOM
 };

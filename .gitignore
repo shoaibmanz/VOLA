@@ -16,6 +16,8 @@ Pipfile
 # production
 /build
 
+vola_backend/.vscode/
+
 # misc
 .DS_Store
 .env.local

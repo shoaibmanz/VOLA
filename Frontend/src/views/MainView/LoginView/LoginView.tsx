@@ -28,9 +28,11 @@ const LoginView: React.FC<IProps> = ({notifyLogin}) => {
 
   function handleSubmit() {
 
-    var endpoint : string = 'https://jsonplaceholder.typicode.com/users'; 
+    var endpoint : string = 'localhost:8000/auth?username=' + email + "&password=" + password; 
+
     axios.get(endpoint)
       .then(res => {
+        console.log(res);
         setLoggedIn(res.data);
     }).catch(e => console.error(e))
 

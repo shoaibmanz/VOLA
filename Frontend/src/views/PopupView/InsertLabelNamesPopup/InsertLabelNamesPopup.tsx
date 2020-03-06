@@ -18,10 +18,10 @@ import {LabelActions} from "../../../logic/actions/LabelActions";
 interface IProps {
     updateActivePopupType: (activePopupType: PopupWindowType) => any;
     updateLabelNames: (labels: LabelName[]) => any;
-    isUpdate: boolean;
 }
 
-const InsertLabelNamesPopup: React.FC<IProps> = ({updateActivePopupType, updateLabelNames, isUpdate}) => {
+const InsertLabelNamesPopup: React.FC<IProps> = ({updateActivePopupType, updateLabelNames}) => {
+    const isUpdate = useState(false); 
     const initialLabels = LabelUtil.convertLabelNamesListToMap(LabelsSelector.getLabelNames());
     const [labelNames, setLabelNames] = useState(initialLabels);
 
@@ -64,7 +64,7 @@ const InsertLabelNamesPopup: React.FC<IProps> = ({updateActivePopupType, updateL
         if (labelNamesList.length > 0) {
             updateLabelNames(LabelUtil.convertMapToLabelNamesList(labelNames));
         }
-        updateActivePopupType(PopupWindowType.LOAD_AI_MODEL);
+        updateActivePopupType(null);
     };
 
     const onUpdateAccept = () => {
@@ -74,12 +74,13 @@ const InsertLabelNamesPopup: React.FC<IProps> = ({updateActivePopupType, updateL
         LabelActions.removeLabelNames(missingIds);
         if (labelNamesList.length > 0) {
             updateLabelNames(LabelUtil.convertMapToLabelNamesList(labelNames));
-            updateActivePopupType(null);
+            
         }
+        updateActivePopupType(null);
     };
 
     const onCreateReject = () => {
-        updateActivePopupType(PopupWindowType.LOAD_LABEL_NAMES);
+        updateActivePopupType(null);
     };
 
     const onUpdateReject = () => {
